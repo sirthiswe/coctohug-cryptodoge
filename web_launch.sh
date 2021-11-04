@@ -1,0 +1,1 @@
+echo 'coctohug-cryptodoge web_launch working'
