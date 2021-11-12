@@ -1,0 +1,7 @@
+{
+  "blockchain": "cryptodoge",
+  "binary": "/cryptodoge/venv/bin/cryptodoge",
+  "mainnet": ".cryptodoge/mainnet",
+  "config": ".cryptodoge/mainnet/config/config.yaml",
+  "webLogLevel": "error"
+}

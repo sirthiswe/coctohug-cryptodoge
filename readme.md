@@ -1,10 +1,10 @@
 # the cryptodoge hand
 - cryptodoge specific docker
-- watchdog with worker mode
+- log parser
 
 # build
-- sudo docker build --no-cache --build-arg CRYPTODOGE_BRANCH=1.2.9 -t coctohug-cryptodoge:latest .
-- sudo docker build --build-arg CRYPTODOGE_BRANCH=1.2.9 -t coctohug-cryptodoge:latest .
+- sudo docker build --no-cache --build-arg CODE_BRANCH=1.2.9 -t coctohug-cryptodoge:latest .
+- sudo docker build --build-arg CODE_BRANCH=1.2.9 -t coctohug-cryptodoge:latest .
 
 # docker-compose
 - coctohug-cryptodoge: 
@@ -18,10 +18,11 @@
             - "/mnt/disk2:/plots2" 
         environment: 
             - mode=fullnode 
-            - worker_address=192.168.1.74 
+            - controller_address=192.168.1.74 
+            - worker_address=192.168.1.74
             - plots_dir=/plots1:/plots2 
-            - blockchains=cryptodoge 
         ports: 
+            - 12636:12636 
             - 15994:15994 
             - 16895:16895
 

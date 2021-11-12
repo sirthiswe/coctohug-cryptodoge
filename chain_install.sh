@@ -1,15 +1,15 @@
 #!/bin/env bash
-#
-# Installs Cryptodoge as per https://github.com/CryptoDoge-Network/cryptodoge
-#
-CRYPTODOGE_BRANCH=$1
+CODE_BRANCH=$1
+CODE_URL=https://github.com/CryptoDoge-Network/cryptodoge.git
+CODE_FOLDER="/cryptodoge"
+BINARY_NAME="cryptodoge"
 
-if [ -z ${CRYPTODOGE_BRANCH} ]; then
-	echo 'Skipping Cryptodoge install as not requested.'
+if [ -z ${CODE_BRANCH} ]; then
+	echo 'Skipping ${BINARY_NAME} install as not requested.'
 else
 	rm -rf /root/.cache
-	git clone --branch ${CRYPTODOGE_BRANCH} --single-branch https://github.com/CryptoDoge-Network/cryptodoge.git /cryptodoge \
-		&& cd /cryptodoge \
+	git clone --branch ${CODE_BRANCH} --single-branch ${CODE_URL} ${CODE_FOLDER} \
+		&& cd ${CODE_FOLDER} \
 		&& git submodule update --init mozilla-ca \
 		&& chmod +x install.sh \
 		&& /usr/bin/sh ./install.sh
@@ -17,7 +17,7 @@ else
 	if [ ! -d /chia-blockchain/venv ]; then
 		cd /
 		rmdir /chia-blockchain
-		ln -s /cryptodoge /chia-blockchain
-		ln -s /cryptodoge/venv/bin/cryptodoge /chia-blockchain/venv/bin/chia
+		ln -s ${CODE_FOLDER} /chia-blockchain
+		ln -s ${CODE_FOLDER}/venv/bin/${BINARY_NAME} /chia-blockchain/venv/bin/chia
 	fi
 fi
