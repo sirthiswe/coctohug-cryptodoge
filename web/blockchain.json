@@ -3,5 +3,8 @@
   "binary": "/cryptodoge/venv/bin/cryptodoge",
   "mainnet": ".cryptodoge/mainnet",
   "config": ".cryptodoge/mainnet/config/config.yaml",
-  "webLogLevel": "error"
+  "webLogLevel": "error",
+  "webLogFile": ".cryptodoge/web.log",
+  "watchDogLogLevel": "error",
+  "watchDogLogFile": ".cryptodoge/cwd.log"
 }
